@@ -29,9 +29,13 @@ export default Ember.Component.extend({
   /**
    * Injected function to re-generate token (which is injected as `tokenProxy`)
    * @virtual
-   * @type {function}
+   * @type {function} returns Promise
    */
-  getToken: undefined,
+  getToken: () => {
+    return Promise.reject({ 
+      message: 'getToken not implemented'
+    });
+  },
   
   /**
    * @virtual
@@ -67,7 +71,10 @@ export default Ember.Component.extend({
       return this.get('copyError')(...arguments);
     },
     getToken() {
-      return this.get('getToken')(...arguments);
+      return this.get('getToken')(...arguments)
+        .catch(error => {
+          console.error(`component:add-space-storage:-tab-base: getToken action failed: ${error && error.message || error}`);
+        });
     }
   },
 });

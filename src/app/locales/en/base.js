@@ -115,6 +115,7 @@ export default {
     modals: {
       addSpaceStorage: {
         title: 'Add storage for',
+        getTokenFailed: 'Getting new token failed',
         requestSupport: {
           tabName: 'Request support',
           desc1: 'Request storage support for this space from existing provider.',
