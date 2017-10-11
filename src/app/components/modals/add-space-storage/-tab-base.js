@@ -21,10 +21,23 @@ export default Ember.Component.extend({
   /**
    * To implement in subclasses.
    * Type of command to generate
-   * @abstract
+   * @virtual
    * @type {string} one of: oneprovider, onedatify
    */
   commandType: null,
+  
+  /**
+   * Injected function to re-generate token (which is injected as `tokenProxy`)
+   * @virtual
+   * @type {function}
+   */
+  getToken: undefined,
+  
+  /**
+   * @virtual
+   * @type {PromiseObject<string>}
+   */
+  tokenProxy: undefined,
   
   _clipboardTarget: computed(function() {
     return `#${this.get('elementId')} .token-input`;
@@ -53,5 +66,8 @@ export default Ember.Component.extend({
     copyError() {
       return this.get('copyError')(...arguments);
     },
+    getToken() {
+      return this.get('getToken')(...arguments);
+    }
   },
 });
