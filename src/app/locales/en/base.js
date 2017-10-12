@@ -255,7 +255,7 @@ export default {
         title: 'First login',
         p1: 'You have successfully logged in and an account for you has been created.',
         p2: 'You are now on account management page. Here, you can connect other ' +
-        'accounts to your profile, modify your user data, manage your spaces' +
+        'accounts to your profile, modify your user data, manage your spaces ' +
         'and providers.',
         p3: 'We have created a default space for you. You need to find a ' +
         'provider that will support it before you can store your files.'
