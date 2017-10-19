@@ -4,8 +4,9 @@
 CHANGELOG
 ---------
 
-### 17.06.1
+### Latest changes
 
+* VFS-3710 Using binary prefix units for displaying sizes (MiB, GiB, etc.)
 * VFS-3455 Refactor of Websocket reconnection modal
 * VFS-3508 Support for new authentication providers
 * VFS-3512 Safari login screen fixes
