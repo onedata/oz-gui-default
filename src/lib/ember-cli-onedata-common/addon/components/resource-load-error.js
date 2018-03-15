@@ -1,5 +1,7 @@
 /**
  * A message to display in place of some resource cannot be loaded. 
+ * 
+ * NOTE: Backported from `onedata-gui-common`.
  *
  * @module components/resource-load-error
  * @author Jakub Liput
@@ -8,18 +10,23 @@
  */
 
 import Ember from 'ember';
+import layout from 'ember-cli-onedata-common/templates/components/resource-load-error';
+
+import getErrorDetails from 'ember-cli-onedata-common/utils/get-error-description';
 
 const {
   Component,
   computed,
+  inject: {
+    service,
+  },
 } = Ember;
 
-function getErrorDetails(reason) {
-  return reason && reason.error || reason;
-}
-
 export default Component.extend({
+  layout,
   classNames: ['alert', 'alert-danger', 'alert-promise-error', 'resource-load-error'],
+
+  i18n: service(),
 
   /**
    * Action to invoke on alert panel close.
@@ -39,8 +46,10 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     if (!this.get('message')) {
-      // TODO i18n
-      this.set('message', 'Sorry, but this resource didn\'t load properly.');
+      this.set(
+        'message',
+        this.get('i18n').t('components.resourceLoadError.defaultErrorMessage')
+      );
     }
   },
 
