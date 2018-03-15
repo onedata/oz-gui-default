@@ -1,4 +1,5 @@
 import sessionLocales from 'ember-cli-onedata-common/locales/en/session';
+import resourceLoadError from 'ember-cli-onedata-common/locales/en/components/resource-load-error';
 
 export default {
   common: {
@@ -214,7 +215,8 @@ export default {
       leave: 'leave',
       rename: 'rename',
       getSupport: 'add storage'
-    }
+    },
+    resourceLoadError,
   },
   logout: {
     failed: 'Session invalidation failed - cannot logout'

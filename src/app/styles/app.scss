@@ -80,6 +80,8 @@ $body-font: 'Open Sans';
 @import "components/message-box-modal";
 @import "components/one-option-button";
 @import "components/common-loader";
+@import 'components/resource-load-error';
+@import 'components/error-inline';
 
 
 html, body {
