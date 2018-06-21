@@ -297,6 +297,7 @@ export default {
       readMore: 'Read more',
       noViewPermissions: 'You do not have privileges to view details of this space.',
       creatingSpace: 'Creating space:',
+      createSpaceFailed: 'Space creation failed!',
     },
     spacesAccordionItem: {
       getSupport: 'Add storage...',
