@@ -1,6 +1,6 @@
 <div class="container login-box-container">
   <div class="row row-centered">
-    <div class="col-xs-9 col-centered login-box">
+    <div class="col-xs-9 col-centered login-box {{loginBoxClasses}}">
       {{#if showAuthenticationError}}
         <h1>{{t "login.authenticationError.title"}}!</h1>
         <div class="container-fluid login-buttons-container login-box-error-message">
@@ -21,6 +21,7 @@
         {{#if supportedAuthorizers}}
           <div class="container-fluid login-buttons-container">
             <div class="row login-forms-row">
+              <div class="login-placeholder"></div>
               <div class="login-form-container animated fast {{if hasAuthorizersForSelect "hide" "always-visible"}}">
                 <h2>{{t 'login.formSubtitle'}}
                   <span class="subtitle-tip">
@@ -68,6 +69,9 @@
               {{/if}}
             </div>
           </div>
+        {{/if}}
+        {{#if (and loginNotification (not isLoading))}}
+          <div class="login-notification">{{loginNotification}}</div>
         {{/if}}
       {{/if}}
     </div>

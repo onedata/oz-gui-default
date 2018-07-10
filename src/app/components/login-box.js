@@ -91,6 +91,32 @@ export default Ember.Component.extend(AuthenticationErrorMessage, {
 
   _activeAuthorizer: null,
 
+  /**
+   * @type {Ember.ComputedProperty<string>}
+   */
+  loginBoxClasses: computed(
+    'hasAuthorizersForSelect',
+    'isUsernameLoginActive',
+    'isProvidersDropdownVisible',
+    function () {
+      const {
+        hasAuthorizersForSelect,
+        isUsernameLoginActive,
+        isProvidersDropdownVisible,
+      } = this.getProperties(
+        'hasAuthorizersForSelect',
+      'isUsernameLoginActive',
+      'isProvidersDropdownVisible'
+      );
+      let classes = hasAuthorizersForSelect & !isUsernameLoginActive ?
+        'authorizers-login' : 'username-login';
+      if (isProvidersDropdownVisible) {
+        classes += ' with-authorizers-dropdown';
+      }
+      return classes;
+    }
+  ),
+
   init() {
     this._super(...arguments);
     if (this.get('authenticationError')) {
