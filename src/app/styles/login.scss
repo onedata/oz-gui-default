@@ -156,6 +156,7 @@
   }
   .authorizers-select-container {
     position: absolute;
+    top: 0;
     left: 0;
     right: 0;
     margin-bottom: 30px;
@@ -245,8 +246,12 @@
     .login-forms-row {
       position: relative;
     }
+    .login-placeholder {
+      height: 200px;
+    }
     .login-form-container {
       position: absolute;
+      top: 0;
       left: 0;
       right: 0;
       margin-bottom: 30px;
@@ -315,7 +320,7 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-50%) translateY(0.1em);
       padding-left: 23px;
       font-size: 14pt;
       text-align: left;
@@ -325,6 +330,7 @@
         word-break: break-word;
       }
       .zone-zone {
+        word-break: break-word;
         font-size: 0.8em;
         opacity: 0.8;
       }
@@ -344,13 +350,41 @@
     padding-right: 20px;
     color: rgba(white,0.5);
   }
+
+  .login-notification {
+    padding: $padding-base-horizontal;
+    max-width: 800px;
+    margin: $padding-base-vertical auto;
+    background-color: rgba($color-steel, 0.3);
+    border: 1px solid darken($color-steel, 3%);
+    text-align: center;
+    font-family: $title-font, $body-font, sans-serif;
+    font-size: 0.9em;
+    transition: transform 0.3s linear;
+    word-wrap: break-word;
+  }
+  .authorizers-login {
+    &.with-authorizers-dropdown {
+      .login-notification {
+        transform: translateY(70px);
+      }
+    }
+    .login-notification {
+      transform: translateY(0px);
+    }
+  }
+  .username-login {
+    .login-notification {
+      transform: translateY(100px);
+    }
+  }
 }
 
 .login-elements {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%) translateY(-160px);
+  transform: translateX(-50%) translateY(-50%);
   width: 100%;
   @media (max-height: 740px) {
     position: initial;

@@ -77,7 +77,6 @@ export default {
       'users created via onepanel administrative interface. Regular users must login via social or ' + 
       'institutional accounts, which are currently disabled by the administrators of this zone.',
     dropdownSubtitle: 'Pick your identity provider',
-    isolatedZone: 'isolated zone',
     unknownZoneName: 'unknown',
     loginWith: 'Login with',
     loginUsing: 'Login using ',
