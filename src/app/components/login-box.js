@@ -22,6 +22,13 @@ export default Ember.Component.extend(AuthenticationErrorMessage, {
   messageBox: Ember.inject.service(),
 
   /**
+   * Admin message provided by backend
+   * @type {string}
+   * @virtual
+   */
+  loginNotification: null,
+
+  /**
    * List of authorizers
    * @type {Array.AuthorizerInfo}
    * 
@@ -105,8 +112,8 @@ export default Ember.Component.extend(AuthenticationErrorMessage, {
         isProvidersDropdownVisible,
       } = this.getProperties(
         'hasAuthorizersForSelect',
-      'isUsernameLoginActive',
-      'isProvidersDropdownVisible'
+        'isUsernameLoginActive',
+        'isProvidersDropdownVisible'
       );
       let classes = hasAuthorizersForSelect & !isUsernameLoginActive ?
         'authorizers-login' : 'username-login';

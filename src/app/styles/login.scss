@@ -361,6 +361,7 @@
     font-family: $title-font, $body-font, sans-serif;
     font-size: 0.9em;
     transition: transform 0.3s linear;
+    word-wrap: break-word;
   }
   .authorizers-login {
     &.with-authorizers-dropdown {
