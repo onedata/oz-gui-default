@@ -22,6 +22,7 @@
     "broccoli-asset-rev": "2.4.2",
     "chai": "3.5.0",
     "chai-jquery": "2.0.0",
+    "contrast": "1.0.1",
     "ember-ajax": "2.0.1",
     "ember-bootstrap": "0.11.3",
     "ember-browser-info": "0.1.3",
