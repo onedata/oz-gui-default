@@ -5,7 +5,6 @@ import safeExec from 'ember-cli-onedata-common/utils/safe-method-execution';
 const {
   computed,
   inject,
-  on,
   get
 } = Ember;
 

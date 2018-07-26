@@ -19,7 +19,8 @@ describe('Integration | Component | social box', function() {
     const $socialIconImage = $loginIconBox.find('.social-icon-image');
     expect($loginIconBox).to.exist;
     expect($loginIconBox, $loginIconBox.attr('class')).to.have.class('custom');
-    expect($socialIconImage.attr('style')).to.match(/\s*background-color:\s*#fff;\s*/);
+    expect($loginIconBox.attr('style')).to.match(/\s*background-color:\s*#fff;\s*/);
+    expect($socialIconImage).to.exist;
     expect($socialIconImage.attr('style')).to.match(/\s*background-image:.*\/custom_dir\/custom\.svg.*;\s*/);
   });
 });
