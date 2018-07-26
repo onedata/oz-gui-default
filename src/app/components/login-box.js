@@ -179,7 +179,7 @@ export default Ember.Component.extend(AuthenticationErrorMessage, {
   actions: {
     authorizerSelected(authorizer) {
       this.set('selectedAuthorizer', authorizer);
-      this.send('authenticate', authorizer.type);
+      this.send('authenticate', authorizer.id);
     },
     // TODO: what if there is server error?
     /** Get a login endpoint URL from server and go to it */

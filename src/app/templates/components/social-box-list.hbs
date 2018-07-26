@@ -15,7 +15,7 @@
         <div>
           {{#each supportedAuthorizers as |authorizer|}}
             {{social-box
-              id=authorizer.id
+              authId=authorizer.id
               iconPath=authorizer.iconPath
               iconBackgroundColor=authorizer.iconBackgroundColor
               tip=(concat (t "login.loginUsing") authorizer.displayName)
