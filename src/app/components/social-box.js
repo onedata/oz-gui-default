@@ -1,5 +1,11 @@
 import Ember from 'ember';
 import contrast from 'npm:contrast';
+import {
+  defaultIconBackgroundColor,
+  defaultIconPath,
+  darkFgColor,
+  lightFgColor,
+} from 'oz-worker-gui/utils/auth-box-config';
 
 /**
  * Renders single login button. Can optionally has a "link" property set to go
@@ -14,12 +20,6 @@ const {
   computed,
   String: { htmlSafe },
 } = Ember;
-
-const defaultIconBackgroundColor = '#333';
-const defaultIconPath = '/assets/images/auth-providers/default.svg';
-
-const darkFgColor = '#555C73';
-const lightFgColor = '#FFF';
 
 export default Ember.Component.extend({
   tagName: 'div',
@@ -37,7 +37,7 @@ export default Ember.Component.extend({
    * @type {string}
    */
   iconPath: undefined,
-  
+
   /**
    * @virtual
    * @type {string}
@@ -50,10 +50,10 @@ export default Ember.Component.extend({
    * @type {string}
    */
   tip: '',
-  
+
   /**
    * @virtual
-   * Href for link when clicked
+   * URL to go when clicked
    * @type {string}
    */
   link: '',
@@ -74,7 +74,7 @@ export default Ember.Component.extend({
       if (this.get('authId') === 'more') {
         return htmlSafe('');
       } else {
-        let  iconPath = this.get('iconPath');
+        let iconPath = this.get('iconPath');
         iconPath = iconPath || defaultIconPath;
         const style = `background-image: url(${iconPath});`;
         return htmlSafe(style);
@@ -86,7 +86,7 @@ export default Ember.Component.extend({
    */
   aStyle: computed(
     'iconBackgroundColor',
-    function spinnerBoxStyle() {
+    function aStyle() {
       let iconBackgroundColor;
       if (this.get('authId') === 'more') {
         iconBackgroundColor = '#fff';
@@ -97,7 +97,7 @@ export default Ember.Component.extend({
       const style = `background-color: ${iconBackgroundColor}; color: ${fgColor};`;
       return htmlSafe(style);
     }),
-    
+
   hasLink: computed('link', function hasLink() {
     let link = this.get('link');
     return link && link.length !== 0;

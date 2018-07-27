@@ -1,16 +1,16 @@
 import Ember from 'ember';
 import contrast from 'npm:contrast';
+import {
+  defaultIconBackgroundColor,
+  defaultIconPath,
+  darkFgColor,
+  lightFgColor,
+} from 'oz-worker-gui/utils/auth-box-config';
 
 const {
   computed,
   String: { htmlSafe },
 } = Ember;
-
-const defaultIconBackgroundColor = '#333';
-const defaultIconPath = '/assets/images/auth-providers/default.svg';
-
-const darkFgColor = '#555C73';
-const lightFgColor = '#FFF';
 
 /**
  * Single user account (authorization provider) entry, like Google+.
