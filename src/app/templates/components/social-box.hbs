@@ -1,6 +1,6 @@
 <a 
   {{action "clicked"}}
-  class="login-icon-box v-center-parent auth-icon {{authId}}"
+  class="login-icon-box v-center-parent auth-icon {{authId}} {{if (eq authId "onepanel") "username"}}"
   style={{aStyle}}
 >
   {{#if active}}
