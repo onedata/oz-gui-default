@@ -8,6 +8,28 @@ import Ember from 'ember';
  * @license This software is released under the MIT license cited in 'LICENSE.txt'.
  */
 export default Ember.Route.extend({
+  beforeModel(transition) {
+    if (transition.queryParams.back_forward ||
+      performance && performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD
+    ) {
+      console.debug(
+        'route:onezone/provider-redirect: detected back/forward - redirecting to previous route'
+      );
+      delete transition.queryParams.back_forward;
+      const hashBeforeRedirect = sessionStorage.getItem('hash-before-redirect');
+      sessionStorage.clear('hash-before-redirect');
+      transition.abort();
+      window.location.replace(hashBeforeRedirect || '#/');
+    } else {
+      const currentHash = window.location.hash;
+      if (!/\/onezone\/provider-redirect/.test(currentHash)) {
+        sessionStorage.setItem('hash-before-redirect', currentHash);
+      } else {
+        sessionStorage.clear('hash-before-redirect');
+      }
+    }
+  },
+    
   model({ providerId }) {
     let user = this.modelFor('onezone');
     let providers = user.get('providers');
