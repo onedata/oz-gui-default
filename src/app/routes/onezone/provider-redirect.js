@@ -1,33 +1,25 @@
-import Ember from 'ember';
-
 /**
- * Content of onezone application - a world map with providers.
- * @module routes/home/onezone/index
+ * Redirect to some provider (URL got from backend).
+ * 
+ * @module routes/home/onezone/provider-redirect
  * @author Jakub Liput
- * @copyright (C) 2016-2017 ACK CYFRONET AGH
+ * @copyright (C) 2016-2018 ACK CYFRONET AGH
  * @license This software is released under the MIT license cited in 'LICENSE.txt'.
  */
-export default Ember.Route.extend({
-  beforeModel(transition) {
-    if (transition.queryParams.back_forward ||
-      performance && performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD
-    ) {
-      console.debug(
-        'route:onezone/provider-redirect: detected back/forward - redirecting to previous route'
-      );
-      delete transition.queryParams.back_forward;
-      const hashBeforeRedirect = sessionStorage.getItem('hash-before-redirect');
-      sessionStorage.clear('hash-before-redirect');
-      transition.abort();
-      window.location.replace(hashBeforeRedirect || '#/');
-    } else {
-      const currentHash = window.location.hash;
-      if (!/\/onezone\/provider-redirect/.test(currentHash)) {
-        sessionStorage.setItem('hash-before-redirect', currentHash);
-      } else {
-        sessionStorage.clear('hash-before-redirect');
-      }
-    }
+
+import Ember from 'ember';
+import RedirectRoute from 'ember-cli-onedata-common/mixins/routes/redirect';
+
+export default Ember.Route.extend(RedirectRoute, {
+  /** 
+   * @override
+   */
+  checkComeFromOtherRoute(currentHash) {
+    return !/\/onezone\/provider-redirect/.test(currentHash);
+  },
+  
+  beforeModel() {
+    return this._super(...arguments);
   },
     
   model({ providerId }) {
