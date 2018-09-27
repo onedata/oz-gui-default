@@ -2,17 +2,24 @@
   <div class="row row-centered">
     <div class="col-xs-9 col-centered login-box {{loginBoxClasses}}">
       {{#if showAuthenticationError}}
-        <h1>{{t "login.authenticationError.title"}}!</h1>
-        <div class="container-fluid login-buttons-container login-box-error-message">
+        <h1>
+          {{one-icon icon="sign-warning-rounded" class="login-warning-icon"}}
+          {{t "login.authenticationError.title"}}
+        </h1>
+        <div class="container-fluid login-box-error-message">
           <div class="row login-forms-row">
-            <div class="login-form-container always-visible">
-              <h2 class="login-box-error-message-text">{{authenticationErrorText}}</h2>
-              <div class="col-xs-12 text-center login-box-error-message-buttons">
-                <button type="button" class="btn btn-primary back-button" {{action "back"}}>
-                  {{one-icon icon="arrow-right"}}
-                  {{t "login.authenticationError.backToLogin"}}
-                </button>
-              </div>
+            <div class="login-box-error-message-text">
+              {{authenticationErrorText}} {{t "login.authenticationError.contactInfo"}}
+            </div>
+            {{input-copy
+              inputValue=authenticationErrorState
+              class="authentication-error-state-input-copy light"
+            }}
+            <div class="col-xs-12 text-center login-box-error-message-buttons">
+              <button type="button" class="btn btn-primary back-button" {{action "back"}}>
+                {{one-icon icon="arrow-right"}}
+                {{t "login.authenticationError.backToLogin"}}
+              </button>
             </div>
           </div>
         </div>

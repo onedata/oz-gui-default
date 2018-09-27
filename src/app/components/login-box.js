@@ -63,7 +63,7 @@ export default Ember.Component.extend(AuthenticationErrorMessage, {
    * A code of last authentication error (or null)
    * @type {string|null}
    */
-  authenticationError: null,
+  authenticationErrorReason: null,
 
   showAuthenticationError: false,
 
@@ -127,7 +127,7 @@ export default Ember.Component.extend(AuthenticationErrorMessage, {
 
   init() {
     this._super(...arguments);
-    if (this.get('authenticationError')) {
+    if (this.get('authenticationErrorReason')) {
       this.set('showAuthenticationError', true);
     }
     this.initSupportedAuthorizers();
