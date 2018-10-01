@@ -64,6 +64,15 @@ export default Ember.Component.extend({
    */
   spinnerScale: 0.25,
 
+  authIdClass: computed('authId', function authIdClass() {
+    let authId = this.get('authId');
+    if (authId) {
+      return 'idp-' + authId.replace(/ /g, '-');
+    } else {
+      return '';
+    }
+  }),
+  
   /**
    * @type {Ember.ComputedProperty<string>}
    */
@@ -76,7 +85,8 @@ export default Ember.Component.extend({
       } else {
         let iconPath = this.get('iconPath');
         iconPath = iconPath || defaultIconPath;
-        const style = `background-image: url(${iconPath});`;
+        iconPath = iconPath.replace(/"/g, '\\"');
+        const style = `background-image: url("${iconPath}");`;
         return htmlSafe(style);
       }
     }),
@@ -93,7 +103,9 @@ export default Ember.Component.extend({
       } else {
         iconBackgroundColor = this.get('iconBackgroundColor') || defaultIconBackgroundColor;
       }
-      const fgColor = contrast(iconBackgroundColor) === 'light' ? darkFgColor : lightFgColor;
+      let fgColor = contrast(iconBackgroundColor) === 'light' ? darkFgColor : lightFgColor;
+      iconBackgroundColor = iconBackgroundColor.replace(/;/g, '\\;');
+      fgColor = fgColor.replace(/;/g, '\\;');
       const style = `background-color: ${iconBackgroundColor}; color: ${fgColor};`;
       return htmlSafe(style);
     }),
