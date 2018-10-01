@@ -17,11 +17,7 @@ export default Ember.Route.extend(RedirectRoute, {
   checkComeFromOtherRoute(currentHash) {
     return !/\/onezone\/provider-redirect/.test(currentHash);
   },
-  
-  beforeModel() {
-    return this._super(...arguments);
-  },
-    
+      
   model({ providerId }) {
     let user = this.modelFor('onezone');
     let providers = user.get('providers');

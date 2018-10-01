@@ -22,19 +22,11 @@ export default Ember.Component.extend({
     return `#${this.get('elementId')} input[type=text]`;
   }),
 
-  selectTokenText() {
-    let input = $(this.get('clipboardTarget'))[0];
-    $(input).focus();
-    input.setSelectionRange(0, input.value.length);
-  },
-
   actions: {
     copySuccess() {
-      this.selectTokenText();
       this.get('notify').info(this.get('i18n').t('common.notify.clipboardSuccess'));
     },
     copyError() {
-      this.selectTokenText();
       this.get('notify').warn(this.get('i18n').t('common.notify.clipboardFailure'));
     },
   }
