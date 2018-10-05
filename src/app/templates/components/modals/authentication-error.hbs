@@ -15,12 +15,14 @@
     {{status-panel
       blocking=true
       type="error"
-      message=(concat authenticationErrorText " " (t "login.authenticationError.contactInfo"))
+      message=(concat authenticationErrorText " " (if showErrorContactInfo (t "login.authenticationError.contactInfo")))
     }}
-    {{input-copy
-      inputValue=authenticationErrorState
-      class="authentication-error-state-input-copy light"
-    }}
+    {{#if showErrorContactInfo}}
+      {{input-copy
+        inputValue=authenticationErrorState
+        class="authentication-error-state-input-copy light"
+      }}
+    {{/if}}
   {{/bs-modal-body}}
   {{#bs-modal-footer as |footer|}}
     {{#bs-button action=(action "close" target=footer) type="default" disabled=isWorking

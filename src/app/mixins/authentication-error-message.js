@@ -32,7 +32,7 @@ const {
 function stripError(authenticationError) {
   let errorCode = authenticationError;
   let errorAttribute;
-  if (_.startsWith(errorCode, 'cannot_resolve_required_attribute')) {
+  if (/^.*?:.*/.test(errorCode)) {
     [ errorCode, errorAttribute ] = errorCode.split(':');
   }
   if (!_.includes(AUTHENTICATION_ERRORS, errorCode)) {
@@ -66,5 +66,12 @@ export default Ember.Mixin.create({
           attribute: errorAttribute,
         });
     }
+  }),
+  
+  showErrorContactInfo: computed('authenticationErrorReason', function showErrorContactInfo() {
+    return !_.includes(
+      ['account_already_linked_to_another_user', 'account_already_linked_to_current_user'],
+      this.get('authenticationErrorReason')
+    );
   }),
 });

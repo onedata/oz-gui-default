@@ -21,11 +21,8 @@ export default Ember.Mixin.create({
   
   getAuthenticationError() {
     const cookies = this.get('cookies');
-    // FIXME: test
-    // const authenticationErrorReason = cookies.read(AUTHENTICATION_ERROR_REASON_KEY);
-    // const authenticationErrorState = cookies.read(AUTHENTICATION_ERROR_STATE_KEY);
-    const authenticationErrorReason = 'cannot_resolve_required_attribute:hello_world';
-    const authenticationErrorState = 'fdkfodifuew89ry47m8fu80';
+    const authenticationErrorReason = cookies.read(AUTHENTICATION_ERROR_REASON_KEY);
+    const authenticationErrorState = cookies.read(AUTHENTICATION_ERROR_STATE_KEY);
     this.setProperties({
       authenticationErrorReason,
       authenticationErrorState,

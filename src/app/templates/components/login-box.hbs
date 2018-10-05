@@ -9,12 +9,14 @@
         <div class="container-fluid login-box-error-message">
           <div class="row login-forms-row">
             <div class="login-box-error-message-text">
-              {{authenticationErrorText}} {{t "login.authenticationError.contactInfo"}}
+              {{authenticationErrorText}} {{if showErrorContactInfo (t "login.authenticationError.contactInfo")}}
             </div>
-            {{input-copy
-              inputValue=authenticationErrorState
-              class="authentication-error-state-input-copy light"
-            }}
+            {{#if showErrorContactInfo}}
+              {{input-copy
+                inputValue=authenticationErrorState
+                class="authentication-error-state-input-copy light"
+              }}
+            {{/if}}
             <div class="col-xs-12 text-center login-box-error-message-buttons">
               <button type="button" class="btn btn-primary back-button" {{action "back"}}>
                 {{one-icon icon="arrow-right"}}

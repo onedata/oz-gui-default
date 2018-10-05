@@ -37,17 +37,7 @@
     line-height: inherit;
   }
   
-  &.rhea {
-    .one-icon {
-      font-size: 50px;
-    }
-    .ember-power-select-option & .one-icon,
-    .ember-power-select-trigger & .one-icon {
-      font-size: 25px;
-    }
-  }
-  
-  &.more {
+  &.idp-more {
     background-color: white;
     color: $color-dark-steel;
     font-weight: bold;    
