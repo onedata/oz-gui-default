@@ -17,7 +17,7 @@ const AUTHENTICATION_ERRORS = [
   'bad_auth_config',
   'invalid_state',
   'invalid_auth_request',
-  'idp_not_reachable',
+  'idp_unreachable',
   'bad_idp_response',
   'cannot_resolve_required_attribute',
   'internal_server_error',
