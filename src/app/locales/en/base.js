@@ -94,7 +94,7 @@ export default {
       // mixins/authentication_error_messages
       codes: {
         bad_auth_config: 'The Onezone server seems to be misconfigured.',
-        invalid_state: 'Login failed due to bad request state - this can happen if you do not complete your login process within {{attribute}} since redirection to chosen Identity Provider.',
+        invalid_state: 'Login failed due to bad request state - this can happen if you do not complete your login process within {{attribute}} seconds since redirection to chosen Identity Provider.',
         invalid_auth_request: 'Your login request could not be validated.',
         idp_unreachable: 'The Identity Provider of your choice seems to be temporarily unavailable, please try again later.',
         bad_idp_response: 'Your Identity Provider returned an unexpected response.',
