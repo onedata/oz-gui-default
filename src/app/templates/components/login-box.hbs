@@ -78,7 +78,7 @@
               {{/if}}
             </div>
           </div>
-        {{else}}
+        {{else if (and (not isLoading) (not errorMessage))}}
           <p class="no-login-methods">{{t "login.noLoginMethods"}}</p>
         {{/if}}
         {{#if testMode}}
