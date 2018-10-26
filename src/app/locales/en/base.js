@@ -85,6 +85,9 @@ export default {
     findProviderPlaceholder: 'Find your identity provider...',
     version: 'version',
     endpointError: 'Authorization configuration is invalid, please contact system administrator',
+    noLoginMethods: 'There are no login methods configured.',
+    loginTestMode: 'You are in login test mode.',
+    goBackToMainPage: 'Go back to main page.',
     authenticationError: {
       title: 'Authentication error!',
       addAccountTitle: 'Cannot link account',
