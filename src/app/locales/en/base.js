@@ -86,8 +86,8 @@ export default {
     version: 'version',
     endpointError: 'Authorization configuration is invalid, please contact system administrator',
     noLoginMethods: 'There are no login methods configured.',
-    loginTestMode: 'You are in login test mode.',
-    goBackToMainPage: 'Go back to main page.',
+    loginTestMode: 'This is the test login page used for login simulation and diagnostics.',
+    goBackToMainPage: 'Go back to the main page.',
     authenticationError: {
       title: 'Authentication error!',
       addAccountTitle: 'Cannot link account',
